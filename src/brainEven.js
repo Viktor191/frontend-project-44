@@ -26,6 +26,10 @@ export const brainEven = () => {
         console.log(`Question: ${randomNam}`)
 
         var userAnswer = readlineSync.question('Your answer: ');
+        if(userAnswer !== 'yes' || userAnswer !== 'no' ) {
+            console.log(`${userAnswer} is wrong answer`)
+            return
+        }
 
         if(userAnswer === 'yes' && even(randomNam) === true) {
             console.log('Correct!')
