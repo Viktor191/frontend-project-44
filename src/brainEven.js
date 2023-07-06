@@ -4,17 +4,12 @@ const getRandomInt = () => {
     let max = 101;
     return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
 }
-
-
 const even = (x) => {
     if(Number.isInteger(x) == true){return x % 2 == 0}else{return undefined}
 }
-
 export const brainEven = () => {
     let randomNam
-
     console.log('Welcome to the Brain Games!')
-
     var userName = readlineSync.question('May I have your name? ');
 
     console.log('Hi, ' + userName + '!');
@@ -24,13 +19,11 @@ export const brainEven = () => {
     for(let i = 0; i < 3; i++) {
         randomNam = getRandomInt()
         console.log(`Question: ${randomNam}`)
-
         var userAnswer = readlineSync.question('Your answer: ');
         if(userAnswer !== 'yes' || userAnswer !== 'no' ) {
             console.log(`${userAnswer} is wrong answer`)
             return
         }
-
         if(userAnswer === 'yes' && even(randomNam) === true) {
             console.log('Correct!')
         }
@@ -45,9 +38,7 @@ export const brainEven = () => {
             return `'no' is wrong answer ;(. Correct answer was 'yes'.
         Let's try again, Bill!`
         }
-
     }
-
     console.log(`Congratulations, ${userName}!`);
 };
 
