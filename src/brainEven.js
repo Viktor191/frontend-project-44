@@ -11,11 +11,8 @@ export const brainEven = () => {
     let randomNam
     console.log('Welcome to the Brain Games!')
     var userName = readlineSync.question('May I have your name? ');
-
     console.log('Hi, ' + userName + '!');
-
     console.log('Answer "yes" if the number is even, otherwise answer "no".')
-
     for(let i = 0; i < 3; i++) {
         randomNam = getRandomInt()
         console.log(`Question: ${randomNam}`)
