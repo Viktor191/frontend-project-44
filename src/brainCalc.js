@@ -27,22 +27,16 @@ export const brainCalc = () => {
     let result;
     let operationSign;
 
-    //var readlineSync = require('readline-sync');
     console.log('Welcome to the Brain Games!')
-
     var userName = readlineSync.question('May I have your name? ');
-
     console.log('Hi, ' + userName + '!');
-
     console.log('What is the result of the expression?')
 
     for(let i = 0; i < 3; i++) {
         randomNam1 = getRandomInt();
         randomNam2 = getRandomInt();
         operationSign = getRandomIntSign()
-
         console.log(`Question: ${randomNam1} ${operationSign} ${randomNam2}`);
-
         if(operationSign === '+') {
             result = randomNam1 + randomNam2
         }
@@ -52,9 +46,7 @@ export const brainCalc = () => {
         if(operationSign === '*') {
             result = randomNam1 * randomNam2
         }
-
         var userAnswer = readlineSync.question('Your answer: ');
-
         if(userAnswer == result) {
             console.log('Correct!')
         } else {
