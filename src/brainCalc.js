@@ -1,19 +1,16 @@
 import readlineSync from 'readline-sync';
 import {getRandomInt} from "./getRandom.js";
 import {getRandomIntSign} from "./getRandom.js";
-const askNameGreeting = () => {
-    var userName = readlineSync.question('May I have your name? ');
+import {askNameGreeting} from "./askNameGreeting.js";
 
-    return ('Hi, ' + userName + '!');
-}
+
+let localUserName = askNameGreeting ()
 export const brainCalc = () => {
     let randomNam1;
     let randomNam2;
     let result;
     let operationSign;
-    console.log('Welcome to the Brain Games!')
-    var userName = readlineSync.question('May I have your name? ');
-    console.log('Hi, ' + userName + '!');
+
     console.log('What is the result of the expression?')
     for(let i = 0; i < 3; i++) {
         randomNam1 = getRandomInt();
@@ -34,9 +31,9 @@ export const brainCalc = () => {
             console.log('Correct!')
         } else {
             console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${result}.
-        Let's try again, ${userName}!`)
+        Let's try again, ${localUserName}!`)
             return
         }
     }
-    console.log(`Congratulations, ${userName}!`);
+    console.log(`Congratulations, ${localUserName}!`);
 }

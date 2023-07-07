@@ -1,13 +1,14 @@
 import readlineSync from 'readline-sync';
 import {getRandomInt} from "./getRandom.js";
+import {askNameGreeting} from "./askNameGreeting.js";
+
+let localUserName = askNameGreeting ()
 const even = (x) => {
     if(Number.isInteger(x) == true){return x % 2 == 0}else{return undefined}
 }
 export const brainEven = () => {
     let randomNam
-    console.log('Welcome to the Brain Games!')
-    var userName = readlineSync.question('May I have your name? ');
-    console.log('Hi, ' + userName + '!');
+
     console.log('Answer "yes" if the number is even, otherwise answer "no".')
     for(let i = 0; i < 3; i++) {
         randomNam = getRandomInt()
@@ -19,7 +20,7 @@ export const brainEven = () => {
         } else { correctAnswer = 'no' }
         if(userAnswer !== 'yes' && userAnswer !== 'no' ) {
             console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.
-        Let's try again, ${userName}!`)
+        Let's try again, ${localUserName}!`)
             return
         }
         if(userAnswer === 'yes' && even(randomNam) === true) {
@@ -30,15 +31,15 @@ export const brainEven = () => {
         }
         if(userAnswer === 'yes' && even(randomNam) === false) {
             console.log(`'yes' is wrong answer ;(. Correct answer was 'no'.
-        Let's try again, ${userName}!`)
+        Let's try again, ${localUserName}!`)
             return
         }
         if(userAnswer === 'no' && even(randomNam) === true) {
             console.log(`'no' is wrong answer ;(. Correct answer was 'yes'.
-        Let's try again, ${userName}`)
+        Let's try again, ${localUserName}`)
             return
         }
     }
-    console.log(`Congratulations, ${userName}!`);
+    console.log(`Congratulations, ${localUserName}!`);
 };
 
