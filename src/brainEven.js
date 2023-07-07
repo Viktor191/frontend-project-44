@@ -1,9 +1,5 @@
 import readlineSync from 'readline-sync';
-const getRandomInt = () => {
-    let min = 1;
-    let max = 101;
-    return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
-}
+import {getRandomInt} from "./getRandom.js";
 const even = (x) => {
     if(Number.isInteger(x) == true){return x % 2 == 0}else{return undefined}
 }
@@ -17,8 +13,13 @@ export const brainEven = () => {
         randomNam = getRandomInt()
         console.log(`Question: ${randomNam}`)
         var userAnswer = readlineSync.question('Your answer: ');
-        if(userAnswer !== 'yes' || userAnswer !== 'no' ) {
-            console.log(`${userAnswer} is wrong answer`)
+        let correctAnswer
+        if(even(randomNam) === true) {
+            correctAnswer = 'yes'
+        } else { correctAnswer = 'no' }
+        if(userAnswer !== 'yes' && userAnswer !== 'no' ) {
+            console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.
+        Let's try again, ${userName}!`)
             return
         }
         if(userAnswer === 'yes' && even(randomNam) === true) {
@@ -28,12 +29,14 @@ export const brainEven = () => {
             console.log('Correct!')
         }
         if(userAnswer === 'yes' && even(randomNam) === false) {
-            return `'yes' is wrong answer ;(. Correct answer was 'no'.
-        Let's try again, Bill!`
+            console.log(`'yes' is wrong answer ;(. Correct answer was 'no'.
+        Let's try again, ${userName}!`)
+            return
         }
         if(userAnswer === 'no' && even(randomNam) === true) {
-            return `'no' is wrong answer ;(. Correct answer was 'yes'.
-        Let's try again, Bill!`
+            console.log(`'no' is wrong answer ;(. Correct answer was 'yes'.
+        Let's try again, ${userName}`)
+            return
         }
     }
     console.log(`Congratulations, ${userName}!`);

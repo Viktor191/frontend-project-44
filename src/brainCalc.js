@@ -1,9 +1,12 @@
 import readlineSync from 'readline-sync';
+import {getRandomInt} from "./getRandom.js";
+import {getRandomIntSign} from "./getRandom.js";
 const askNameGreeting = () => {
     var userName = readlineSync.question('May I have your name? ');
 
     return ('Hi, ' + userName + '!');
 }
+/*
 const getRandomInt = () => {
     let min = 1;
     let max = 101;
@@ -17,6 +20,8 @@ const getRandomIntSign = () => {
     return arrSign[namberSign];
     //Максимум не включается, минимум включается
 }
+*/
+
 export const brainCalc = () => {
     let randomNam1;
     let randomNam2;
