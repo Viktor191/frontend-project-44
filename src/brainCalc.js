@@ -3,7 +3,6 @@ import {getRandomInt} from "./getRandom.js";
 import {getRandomIntSign} from "./getRandom.js";
 import {askNameGreeting} from "./askNameGreeting.js";
 
-
 let localUserName = askNameGreeting ()
 export const brainCalc = () => {
     let randomNam1;
