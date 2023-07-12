@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
-import {getRandomInt} from "./getRandom.js";
-import {getRandomIntSign} from "./getRandom.js";
-import {askNameGreeting} from "./askNameGreeting.js";
+import {getRandomInt} from "./index.js";
+import {getRandomIntSign} from "./index.js";
+import {askNameGreeting} from "./index.js";
 
 let localUserName = askNameGreeting ()
 export const brainCalc = () => {

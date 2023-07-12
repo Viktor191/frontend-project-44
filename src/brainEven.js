@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
-import {getRandomInt} from "./getRandom.js";
-import {askNameGreeting} from "./askNameGreeting.js";
+import {getRandomInt} from "./index.js";
+import {askNameGreeting} from "./index.js";
 
 let localUserName = askNameGreeting ()
 const even = (x) => {
