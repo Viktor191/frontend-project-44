@@ -20,3 +20,13 @@ export const getRandomIntSign = () => {
     return arrSign[namberSign];
     //Максимум не включается, минимум включается
 }
+export function NOD () {
+    for (var x = arguments[0], i = 1; i < arguments.length; i++) {
+        var y = arguments[i];
+        while (x && y) {
+            x > y ? x %= y : y %= x;
+        }
+        x += y;
+    }
+    return x;
+}
