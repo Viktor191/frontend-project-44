@@ -45,7 +45,13 @@ export const getRandomArr = () => {
     for (let i = 0; i < maxLengthArr - 1; i++) {
         result = result + progressionStep;
         arr.push(result);
-    };
+    }
     return arr;
     //Максимум не включается, минимум включается
 };
+export function isPrime(num) {
+    for (let i = 2; i < num; i++) {
+        if (num % i === 0) return false;
+    }
+    return num !== 1;
+}
