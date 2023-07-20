@@ -1,7 +1,7 @@
-import { isPrime } from './index.js'
-import { getRandomInt } from './index.js'
+import { isPrime } from '../index.js'
+import { getRandomInt } from '../index.js'
 import readlineSync from 'readline-sync'
-import { askNameGreeting } from './index.js'
+import { askNameGreeting } from '../index.js'
 
 let localUserName = askNameGreeting()
 let result
