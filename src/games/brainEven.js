@@ -36,7 +36,7 @@ export const brainEven = () => {
     }
     if (userAnswer === 'no' && even(randomNam) === true) {
       console.log(`'no' is wrong answer ;(. Correct answer was 'yes'.
-        Let's try again, ${localUserName}`)
+        Let's try again, ${localUserName}!`)
       return
     }
   }
