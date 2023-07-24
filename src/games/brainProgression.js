@@ -14,9 +14,9 @@ const hideElement = () => {
   let elementIndex = Math.floor(Math.random() * (max - min)) + min
   let result = randomArr[elementIndex]
   //console.log(result + ' result')
-  randomArrhideEl = randomArr.splice(elementIndex, 1, '*')
+  randomArrhideEl = randomArr.splice(elementIndex, 1, '..')
   result2 = result
-  return randomArr
+  return randomArr.join(' ');
 }
 
 
