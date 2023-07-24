@@ -3,5 +3,5 @@ export const askNameGreeting = () => {
 
     // Wait for user's response.
     let userName = readlineSync.question('May I have your name? ');
-    console.log('Hi ' + userName + '!');
+    console.log('Hello, ' + userName + '!');
 }
