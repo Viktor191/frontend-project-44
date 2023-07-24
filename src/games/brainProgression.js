@@ -3,6 +3,8 @@ import { askNameGreeting } from '../index.js'
 import { getRandomArr } from '../index.js'
 
 let result2
+let localUserName = askNameGreeting()
+let randomNam1
 const hideElement = () => {
   let randomArr = getRandomArr()
   let min = 0
@@ -11,14 +13,13 @@ const hideElement = () => {
 
   let elementIndex = Math.floor(Math.random() * (max - min)) + min
   let result = randomArr[elementIndex]
-  console.log(result + ' result')
+  //console.log(result + ' result')
   randomArrhideEl = randomArr.splice(elementIndex, 1, '*')
   result2 = result
   return randomArr
 }
 
-let localUserName = askNameGreeting()
-let randomNam1
+
 export const brainProgression = () => {
   for (let i = 0; i < 3; i++) {
     randomNam1 = hideElement()
@@ -31,7 +32,7 @@ export const brainProgression = () => {
     if (userAnswer == result2) {
       console.log('Correct!')
     } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${result2}.
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${result2}".
         Let's try again, ${localUserName}!`)
       return
     }

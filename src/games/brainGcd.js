@@ -20,7 +20,7 @@ export const brainGcd = () => {
     if (userAnswer == result) {
       console.log('Correct!')
     } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${result}.
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${result}".
         Let's try again, ${localUserName}!`)
       return
     }
