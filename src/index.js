@@ -4,7 +4,7 @@ export const askNameGreeting = () => {
     let name;
     console.log('Welcome to the Brain Games!');
     var userName = readlineSync.question('May I have your name? ');
-    console.log('Hi, ' + userName + '!');
+    console.log('Hello, ' + userName + '!');
     name = userName;
     return name;
 }
