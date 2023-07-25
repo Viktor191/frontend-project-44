@@ -10,7 +10,7 @@ const hideElement = () => {
   const max = randomArr.length;
   const elementIndex = Math.floor(Math.random() * (max - min)) + min;
   const result = randomArr[elementIndex];
-  console.log(`${result} result`);
+  // console.log(`${result} result`);
   randomArr.splice(elementIndex, 1, '..');
   result2 = result;
   return randomArr.join(' ');

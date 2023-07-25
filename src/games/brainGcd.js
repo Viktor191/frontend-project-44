@@ -2,18 +2,19 @@ import readlineSync from 'readline-sync';
 import { getRandomInt, askNameGreeting, NOD } from '../index.js';
 
 const localUserName = askNameGreeting();
-export const brainGcd = () => {
+const brainGcd = () => {
   let randomNam1;
   let randomNam2;
   let result;
-  console.log('Find the greatest common divisor of given numbers.')
+  console.log('Find the greatest common divisor of given numbers.');
   for (let i = 0; i < 3; i += 1) {
     randomNam1 = getRandomInt();
     randomNam2 = getRandomInt();
     console.log(`Question: ${randomNam1} ${randomNam2}`);
     result = NOD(randomNam1, randomNam2);
-    var userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer == result) {
+    // console.log(result);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (Number(userAnswer) === result) {
       console.log('Correct!');
     } else {
       console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${result}".
@@ -23,3 +24,4 @@ export const brainGcd = () => {
   }
   console.log(`Congratulations, ${localUserName}!`);
 };
+export default brainGcd;

@@ -13,7 +13,7 @@ const brainPrime = () => {
       result2 = 'yes';
     } else { result2 = 'no'; }
 
-    console.log(result2); // удобно включить для проверки
+    // console.log(result2); // удобно включить для проверки
 
     console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
@@ -21,7 +21,7 @@ const brainPrime = () => {
 
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (Number(userAnswer) === result2) {
+    if (userAnswer === result2) {
       console.log('Correct!');
     } else {
       console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${result2}".
