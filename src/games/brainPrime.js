@@ -4,7 +4,7 @@ import { isPrime, getRandomInt, askNameGreeting } from '../index.js';
 const localUserName = askNameGreeting();
 let result;
 let randomNam1;
-export const brainPrime = () => {
+const brainPrime = () => {
   let result2;
   for (let i = 0; i < 3; i += 1) {
     randomNam1 = getRandomInt();
@@ -13,15 +13,15 @@ export const brainPrime = () => {
       result2 = 'yes';
     } else { result2 = 'no'; }
 
-    // console.log(result2) удобно включить для проверки
+    console.log(result2); // удобно включить для проверки
 
     console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
     console.log(`Question: ${randomNam1}`);
 
-    var userAnswer = readlineSync.question('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: ');
 
-    if (userAnswer == result2) {
+    if (Number(userAnswer) === result2) {
       console.log('Correct!');
     } else {
       console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${result2}".
@@ -31,3 +31,4 @@ export const brainPrime = () => {
   }
   console.log(`Congratulations, ${localUserName}!`);
 };
+export default brainPrime;
