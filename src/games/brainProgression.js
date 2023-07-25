@@ -1,45 +1,38 @@
-import readlineSync from 'readline-sync'
-import { askNameGreeting } from '../index.js'
-import { getRandomArr } from '../index.js'
+import readlineSync from 'readline-sync';
+import { askNameGreeting, getRandomArr } from '../index.js';
 
-let result2
-let localUserName = askNameGreeting()
-let randomNam1
+let result2;
+const localUserName = askNameGreeting();
+let randomNam1;
 const hideElement = () => {
-  let randomArr = getRandomArr()
-  let min = 0
-  let max = randomArr.length
-  let randomArrhideEl = []
-
-  let elementIndex = Math.floor(Math.random() * (max - min)) + min
-  let result = randomArr[elementIndex]
-  //console.log(result + ' result')
-  randomArrhideEl = randomArr.splice(elementIndex, 1, '..')
-  result2 = result
+  const randomArr = getRandomArr();
+  const min = 0;
+  const max = randomArr.length;
+  const elementIndex = Math.floor(Math.random() * (max - min)) + min;
+  const result = randomArr[elementIndex];
+  console.log(`${result} result`);
+  randomArr.splice(elementIndex, 1, '..');
+  result2 = result;
   return randomArr.join(' ');
-}
+};
 
+const brainProgression = () => {
+  for (let i = 0; i < 3; i += 1) {
+    randomNam1 = hideElement();
+    console.log('What number is missing in the progression?');
 
-export const brainProgression = () => {
-  for (let i = 0; i < 3; i++) {
-    randomNam1 = hideElement()
-    console.log('What number is missing in the progression?')
+    console.log(`Question: ${randomNam1}`);
 
-    console.log(`Question: ${randomNam1}`)
+    const userAnswer = readlineSync.question('Your answer: ');
 
-    var userAnswer = readlineSync.question('Your answer: ')
-
-    if (userAnswer == result2) {
-      console.log('Correct!')
+    if (Number(userAnswer) === result2) {
+      console.log('Correct!');
     } else {
       console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${result2}".
-        Let's try again, ${localUserName}!`)
-      return
+        Let's try again, ${localUserName}!`);
+      return;
     }
   }
-  console.log(`Congratulations, ${localUserName}!`)
-  return
-}
-
-
-
+  console.log(`Congratulations, ${localUserName}!`);
+};
+export default brainProgression;
