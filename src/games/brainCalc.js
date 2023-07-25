@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 import { getRandomInt, getRandomIntSign, askNameGreeting } from '../index.js';
 
 const localUserName = askNameGreeting();
-export const brainCalc = () => {
+const brainCalc = () => {
   let randomNam1;
   let randomNam2;
   let result;
@@ -23,8 +23,8 @@ export const brainCalc = () => {
     if (operationSign === '*') {
       result = randomNam1 * randomNam2;
     }
-    var userAnswer = readlineSync.question('Your answer: ')
-    if (userAnswer == result) {
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (Number(userAnswer) === result) {
       console.log('Correct!');
     } else {
       console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${result}.
@@ -33,4 +33,5 @@ export const brainCalc = () => {
     }
   }
   console.log(`Congratulations, ${localUserName}!`);
-}
+};
+export default brainCalc;
