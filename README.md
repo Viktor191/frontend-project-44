@@ -1,6 +1,10 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Viktor191/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/Viktor191/frontend-project-44/actions)
 <a href="https://codeclimate.com/github/Viktor191/frontend-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/7abec928d02ce72f8e25/maintainability" /></a>
+<h5>Для установки игр клонируйте репозиторий командой:</br>
+git clone https://github.com/Viktor191/frontend-project-44.git </br> После клонирования переходим
+в папку frontend-project-44 и набираем команду npm install. </br>
+Игры готовы к запуску, краткое описание и команды для запуска игр вы найдете ниже.</h5>
 
     Проверка на четность, запускается командой brain-even
 Суть игры в следующем: пользователю показывается случайное число.
