@@ -13,10 +13,8 @@ const brainPrime = () => {
       result2 = 'yes';
     } else { result2 = 'no'; }
 
-    // console.log(result2); // удобно включить для проверки
-
     console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-
+    console.log('Подсказка для тестов ' + result2); // удобно включить для проверки
     console.log(`Question: ${randomNam1}`);
 
     const userAnswer = readlineSync.question('Your answer: ');

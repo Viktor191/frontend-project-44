@@ -23,6 +23,7 @@ const brainCalc = () => {
     if (operationSign === '*') {
       result = randomNam1 * randomNam2;
     }
+    console.log('Подсказка для тестов ' + result); // удобно включить для проверки
     const userAnswer = readlineSync.question('Your answer: ');
     if (Number(userAnswer) === result) {
       console.log('Correct!');
