@@ -22,7 +22,7 @@ const brainProgression = () => {
     console.log('What number is missing in the progression?');
 
     console.log(`Question: ${randomNam1}`);
-    console.log('Подсказка для тестов ' + result2);
+    // console.log('Подсказка для тестов' + result2);
     const userAnswer = readlineSync.question('Your answer: ');
 
     if (Number(userAnswer) === result2) {

@@ -12,7 +12,7 @@ const brainGcd = () => {
     randomNam2 = getRandomInt();
     result = NOD(randomNam1, randomNam2);
     console.log(`Question: ${randomNam1} ${randomNam2}`);
-    console.log('Подсказка для тестов ' + result);
+    // console.log('Подсказка для тестов' + result);
     const userAnswer = readlineSync.question('Your answer: ');
     if (Number(userAnswer) === result) {
       console.log('Correct!');
