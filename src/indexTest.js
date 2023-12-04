@@ -60,22 +60,19 @@ export function isPrime(num) {
   return num !== 1;
 }
 
-const gameLaunchTemplate = () => {
-  const localUserName = askNameGreeting();
-
-  for (let i = 0; i < 3; i += 1) {
-    let gameInfo = brainEven2();
-    let question = gameInfo.question;
-    let userAnswer = gameInfo.userAnswer;
-    let correctAnswer = gameInfo.correctAnswer;
-    console.log(question);
-
-    if (userAnswer === correctAnswer) {
+export const gameLaunchTemplate = (oneRoundPlay) => {
+  const numberOfRounds = 3;
+  let name;
+  for (let i = 0; i < numberOfRounds; i += 1) {
+    let gameInfo = oneRoundPlay();
+    name = gameInfo.localUserName;
+    if (gameInfo.userAnswer === gameInfo.correctAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".
-        Let's try again, ${localUserName}!`);
+      console.log(`"${gameInfo.userAnswer}" is wrong answer ;(. Correct answer was "${gameInfo.correctAnswer}".
+        Let's try again, ${gameInfo.localUserName}!`);
+      return;
     }
   }
-  console.log(`Congratulations, ${localUserName}!`);
+  console.log(`Congratulations, ${name}!`);
 };
