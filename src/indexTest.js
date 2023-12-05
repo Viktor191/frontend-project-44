@@ -63,6 +63,7 @@ export function isPrime(num) {
 export const gameLaunchTemplate = (oneRoundPlay) => {
   const numberOfRounds = 3;
   let name;
+
   for (let i = 0; i < numberOfRounds; i += 1) {
     let gameInfo = oneRoundPlay();
     name = gameInfo.localUserName;

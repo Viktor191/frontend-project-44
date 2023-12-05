@@ -2,22 +2,23 @@ import readlineSync from 'readline-sync';
 import { getRandomInt, askNameGreeting } from '../index.js';
 import { gameLaunchTemplate } from '../indexTest.js'
 
-const localUserName = askNameGreeting();
+//const localUserName = askNameGreeting();
 const even = (x) => {
   if (Number.isInteger(x) === true) { return x % 2 === 0; } return undefined;
 };
-const brainEven = () => {
-  let randomNam;
-  let gameInfo = {};
-  let objName = {}
-  objName.localUserName = localUserName;
 
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+const brainEven = () => {
+  //let randomNam;
+  // let gameInfo = {};
+  let objName = {}
+  objName.localUserName = askNameGreeting();
+
+  console.log('Answer "yes" if the number is even, otherwise answer "no".Test');
 
   const oneRoundPlay = () => {
-    gameInfo = {};
+    let gameInfo = {};
     let correctAnswer;
-    randomNam = getRandomInt();
+    let randomNam = getRandomInt();
     console.log(`Question: ${randomNam}`);
     const userAnswer = readlineSync.question('Your answer: ');
     gameInfo.userAnswer = userAnswer;
@@ -31,6 +32,5 @@ const brainEven = () => {
     return gameInfo;
   };
   gameLaunchTemplate(oneRoundPlay);
-
 };
 export default brainEven;
