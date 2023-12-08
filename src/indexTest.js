@@ -60,18 +60,25 @@ export function isPrime(num) {
   return num !== 1;
 }
 
-export const gameLaunchTemplate = (oneRoundPlay) => {
-  const numberOfRounds = 3;
-  let name;
+const numberOfRounds = 3;
+
+export const gameLaunchTemplate = (oneRoundPlay, uniqueQuestion) => {
+
+  let name = askNameGreeting();
+  console.log(uniqueQuestion);
 
   for (let i = 0; i < numberOfRounds; i += 1) {
     let gameInfo = oneRoundPlay();
-    name = gameInfo.localUserName;
-    if (gameInfo.userAnswer === gameInfo.correctAnswer) {
+
+    console.log(`Question: ${gameInfo.randomNam}`);
+
+    const userAnswer = readlineSync.question('Your answer: ');
+
+    if (userAnswer === gameInfo.correctAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`"${gameInfo.userAnswer}" is wrong answer ;(. Correct answer was "${gameInfo.correctAnswer}".
-        Let's try again, ${gameInfo.localUserName}!`);
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${gameInfo.correctAnswer}".
+        Let's try again, ${name}!`);
       return;
     }
   }

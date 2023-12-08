@@ -8,21 +8,14 @@ const even = (x) => {
 };
 
 const brainEven = () => {
-  //let randomNam;
-  // let gameInfo = {};
-  let objName = {}
-  objName.localUserName = askNameGreeting();
-
-  console.log('Answer "yes" if the number is even, otherwise answer "no".Test');
+  const uniqueQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
+  let randomNam;
 
   const oneRoundPlay = () => {
     let gameInfo = {};
     let correctAnswer;
-    let randomNam = getRandomInt();
-    console.log(`Question: ${randomNam}`);
-    const userAnswer = readlineSync.question('Your answer: ');
-    gameInfo.userAnswer = userAnswer;
-    gameInfo.localUserName = objName.localUserName;
+    randomNam = getRandomInt();
+    gameInfo.randomNam = randomNam;
 
     if (even(randomNam) === true) {
       correctAnswer = 'yes';
@@ -31,6 +24,6 @@ const brainEven = () => {
 
     return gameInfo;
   };
-  gameLaunchTemplate(oneRoundPlay);
+  gameLaunchTemplate(oneRoundPlay, uniqueQuestion);
 };
 export default brainEven;
