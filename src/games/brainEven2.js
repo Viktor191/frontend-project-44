@@ -7,7 +7,6 @@ const even = (x) => {
 };
 
 let randomNam;
-let correctAnswer;
 
 const oneRoundPlay = () => {
   const gameInfo = {};
@@ -16,10 +15,8 @@ const oneRoundPlay = () => {
   gameInfo.randomNam = randomNam;
 
   if (even(randomNam) === true) {
-    correctAnswer = 'yes';
-    gameInfo.correctAnswer = correctAnswer;
-  } else { correctAnswer = 'no'; gameInfo.correctAnswer = correctAnswer;}
-
+    gameInfo.correctAnswer = 'yes';
+  } else { gameInfo.correctAnswer = 'no';}
   return gameInfo;
 };
 
