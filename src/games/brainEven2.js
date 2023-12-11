@@ -7,9 +7,11 @@ const even = (x) => {
 };
 
 let randomNam;
+let correctAnswer;
+
 const oneRoundPlay = () => {
-  let gameInfo = {};
-  let correctAnswer;
+  const gameInfo = {};
+
   randomNam = getRandomInt();
   gameInfo.randomNam = randomNam;
 
@@ -23,7 +25,7 @@ const oneRoundPlay = () => {
 
 const brainEven = () => {
   const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
-  
+
   gameLaunchTemplate(oneRoundPlay, gameDescription);
 };
 export default brainEven;
