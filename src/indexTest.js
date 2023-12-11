@@ -62,10 +62,10 @@ export function isPrime(num) {
 
 const numberOfRounds = 3;
 
-export const gameLaunchTemplate = (oneRoundPlay, uniqueQuestion) => {
+export const gameLaunchTemplate = (oneRoundPlay, gameDescription) => {
 
   let name = askNameGreeting();
-  console.log(uniqueQuestion);
+  console.log(gameDescription);
 
   for (let i = 0; i < numberOfRounds; i += 1) {
     let gameInfo = oneRoundPlay();
