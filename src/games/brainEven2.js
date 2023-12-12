@@ -1,28 +1,28 @@
 import readlineSync from 'readline-sync';
 import { getRandomInt, askNameGreeting } from '../index.js';
-import { gameLaunchTemplate } from '../indexTest.js'
+import { getGameLaunchTemplate } from '../indexTest.js'
 
-const even = (x) => {
+const isEven = (x) => {
   if (Number.isInteger(x) === true) { return x % 2 === 0; } return undefined;
 };
 
-let randomNam;
+let randomNum;
 
 const oneRoundPlay = () => {
-  const gameInfo = {};
+  const GAME_INFO = {};
 
-  randomNam = getRandomInt();
-  gameInfo.randomNam = randomNam;
+  randomNum = getRandomInt();
+  GAME_INFO.randomNum = randomNum;
 
-  if (even(randomNam) === true) {
-    gameInfo.correctAnswer = 'yes';
-  } else { gameInfo.correctAnswer = 'no';}
-  return gameInfo;
+  if (isEven(randomNum) === true) {
+    GAME_INFO.correctAnswer = 'yes';
+  } else { GAME_INFO.correctAnswer = 'no';}
+  return GAME_INFO;
 };
 
 const brainEven = () => {
   const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-  gameLaunchTemplate(oneRoundPlay, gameDescription);
+  getGameLaunchTemplate(oneRoundPlay, gameDescription);
 };
 export default brainEven;
