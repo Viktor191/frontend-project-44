@@ -1,9 +1,6 @@
-import readlineSync from 'readline-sync';
-import { askNameGreeting, getRandomArr } from '../index.js';
+import { getGameLaunchTemplate, getRandomArr } from '../index.js';
 
-let result2;
-const localUserName = askNameGreeting();
-let randomNam1;
+let correctAnswer;
 const hideElement = () => {
   const randomArr = getRandomArr();
   const min = 0;
@@ -12,27 +9,24 @@ const hideElement = () => {
   const result = randomArr[elementIndex];
   // console.log(`${result} result`);
   randomArr.splice(elementIndex, 1, '..');
-  result2 = result;
+  correctAnswer = result;
   return randomArr.join(' ');
 };
 
+const getOneRoundPlay = () => {
+  const GAME_INFO = {};
+  const randomNam1 = hideElement();
+
+  GAME_INFO.correctAnswer = correctAnswer;
+  GAME_INFO.questionOfRound = `${randomNam1}`;
+
+  console.log(`Подсказка для тестов ${GAME_INFO.correctAnswer}`);
+
+  return GAME_INFO;
+};
 const brainProgression = () => {
-  for (let i = 0; i < 3; i += 1) {
-    randomNam1 = hideElement();
-    console.log('What number is missing in the progression?');
+  const gameDescription = 'What number is missing in the progression?';
 
-    console.log(`Question: ${randomNam1}`);
-    // console.log('Подсказка для тестов' + result2);
-    const userAnswer = readlineSync.question('Your answer: ');
-
-    if (Number(userAnswer) === result2) {
-      console.log('Correct!');
-    } else {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${result2}".
-        Let's try again, ${localUserName}!`);
-      return;
-    }
-  }
-  console.log(`Congratulations, ${localUserName}!`);
+  getGameLaunchTemplate(getOneRoundPlay, gameDescription);
 };
 export default brainProgression;
