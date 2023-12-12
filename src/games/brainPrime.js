@@ -1,32 +1,24 @@
-import readlineSync from 'readline-sync';
-import { isPrime, getRandomInt, askNameGreeting } from '../index.js';
+import { isPrime, getRandomInt, getGameLaunchTemplate } from '../index.js';
 
-const localUserName = askNameGreeting();
-let result;
-let randomNam1;
-const brainPrime = () => {
-  let result2;
-  for (let i = 0; i < 3; i += 1) {
-    randomNam1 = getRandomInt();
-    result = isPrime(randomNam1);
-    if (result === true) {
-      result2 = 'yes';
-    } else { result2 = 'no'; }
+const getOneRoundPlay = () => {
+  const GAME_INFO = {};
+  const randomNam1 = getRandomInt();
+  const isResult = isPrime(randomNam1);
+  // randomNam1 = getRandomInt();
 
-    console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-    // console.log('Подсказка для тестов' + result2); // удобно включить для проверки
-    console.log(`Question: ${randomNam1}`);
+  if (isResult === true) {
+    GAME_INFO.correctAnswer = 'yes';
+  } else { GAME_INFO.correctAnswer = 'no'; }
 
-    const userAnswer = readlineSync.question('Your answer: ');
+  GAME_INFO.questionOfRound = `${randomNam1}`;
 
-    if (userAnswer === result2) {
-      console.log('Correct!');
-    } else {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${result2}".
-        Let's try again, ${localUserName}!`);
-      return;
-    }
-  }
-  console.log(`Congratulations, ${localUserName}!`);
+  console.log(`Подсказка для тестов ${GAME_INFO.correctAnswer}`);
+
+  return GAME_INFO;
 };
-export default brainPrime;
+const brainGcd = () => {
+  const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+  getGameLaunchTemplate(getOneRoundPlay, gameDescription);
+};
+export default brainGcd;
