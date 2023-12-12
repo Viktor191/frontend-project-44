@@ -1,31 +1,26 @@
-import readlineSync from 'readline-sync';
-import { getRandomInt, askNameGreeting } from '../index.js';
+import { getRandomInt, getGameLaunchTemplate } from '../index.js';
 
-const localUserName = askNameGreeting();
-const even = (x) => {
+const isEven = (x) => {
   if (Number.isInteger(x) === true) { return x % 2 === 0; } return undefined;
 };
-const brainEven = () => {
-  let randomNam;
 
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  for (let i = 0; i < 3; i += 1) {
-    randomNam = getRandomInt();
-    console.log(`Question: ${randomNam}`);
-    const userAnswer = readlineSync.question('Your answer: ');
-    let correctAnswer;
-    //
-    if (even(randomNam) === true) {
-      correctAnswer = 'yes';
-    } else { correctAnswer = 'no'; }
-    if (userAnswer === correctAnswer) {
-      console.log('Correct!');
-    } else {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".
-        Let's try again, ${localUserName}!`);
-      return;
-    }
-  }
-  console.log(`Congratulations, ${localUserName}!`);
+let QUESTION_OF_ROUND;
+
+const getOneRoundPlay = () => {
+  const GAME_INFO = {};
+
+  QUESTION_OF_ROUND = getRandomInt();
+  GAME_INFO.questionOfRound = QUESTION_OF_ROUND;
+
+  if (isEven(QUESTION_OF_ROUND) === true) {
+    GAME_INFO.correctAnswer = 'yes';
+  } else { GAME_INFO.correctAnswer = 'no';}
+  return GAME_INFO;
+};
+
+const brainEven = () => {
+  const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+  getGameLaunchTemplate(getOneRoundPlay, gameDescription);
 };
 export default brainEven;

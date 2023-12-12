@@ -2,22 +2,22 @@ import readlineSync from 'readline-sync';
 
 export const askNameGreeting = () => {
   console.log('Welcome to the Brain Games!');
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-  return userName;
+  const USER_NAME = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${USER_NAME}!`);
+  return USER_NAME;
 };
 export const getRandomInt = () => {
-  const min = 1;
-  const max = 101;
-  return Math.floor(Math.random() * (max - min)) + min;
+  const MIN = 1;
+  const MAX = 101;
+  return Math.floor(Math.random() * (MAX - MIN)) + MIN;
   // Максимум не включается, минимум включается
 };
 export const getRandomIntSign = () => {
-  const min = 0;
-  const max = 3;
-  const arrSign = ['+', '*', '-'];
-  const namberSign = Math.floor(Math.random() * (max - min)) + min;
-  return arrSign[namberSign];
+  const MIN = 0;
+  const MAX = 3;
+  const ARR_SIGN = ['+', '*', '-'];
+  const NUMBER_SIGN = Math.floor(Math.random() * (MAX - MIN)) + MIN;
+  return ARR_SIGN[NUMBER_SIGN];
   // Максимум не включается, минимум включается
 };
 
@@ -35,20 +35,20 @@ export const NOD = (a, b) => { // если не будет проходить п
 };
 
 export const getRandomArr = () => {
-  const min = 5;
-  const max = 11;
-  const arr = [];
+  const MIN = 5;
+  const MAX = 11;
+  const ARR = [];
   let result = getRandomInt();
-  const progressionStep = getRandomInt();
+  const PROGRESSION_STEP = getRandomInt();
 
-  const maxLengthArr = Math.floor(Math.random() * (max - min)) + min;
-  arr.push(result);
+  const MAX_LENGTH_ARR = Math.floor(Math.random() * (MAX - MIN)) + MIN;
+  ARR.push(result);
 
-  for (let i = 0; i < maxLengthArr - 1; i += 1) {
-    result += progressionStep;
-    arr.push(result);
+  for (let i = 0; i < MAX_LENGTH_ARR - 1; i += 1) {
+    result += PROGRESSION_STEP;
+    ARR.push(result);
   }
-  return arr;
+  return ARR;
   // Максимум не включается, минимум включается
 };
 
@@ -58,3 +58,28 @@ export function isPrime(num) {
   }
   return num !== 1;
 }
+
+const NUMBER_OF_ROUNDS = 3;
+
+export const getGameLaunchTemplate = (getOneRoundPlay, gameDescription) => {
+  const NAME = askNameGreeting();
+  console.log(gameDescription);
+
+  for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
+    const GAME_INFO = getOneRoundPlay();
+    console.log(`Question: ${GAME_INFO.questionOfRound}`);
+
+    const userAnswer = readlineSync.question('Your answer: ');
+
+    // eslint-disable-next-line eqeqeq
+    if (userAnswer == GAME_INFO.correctAnswer) { // linter ругается на ==, нужно ли менять на ===?
+      // переводить ответ пользователя из строки в число, там где ответ не буквенный.
+      console.log('Correct!');
+    } else {
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${GAME_INFO.correctAnswer}".
+        Let's try again, ${NAME}!`);
+      return;
+    }
+  }
+  console.log(`Congratulations, ${NAME}!`);
+};

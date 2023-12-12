@@ -1,19 +1,19 @@
-import readlineSync from 'readline-sync';
-import { getRandomInt, getRandomIntSign, askNameGreeting } from '../index.js';
+import { getRandomInt, getGameLaunchTemplate, getRandomIntSign } from '../index.js';
 
-const localUserName = askNameGreeting();
-const brainCalc = () => {
+const getOneRoundPlay = () => {
+  const GAME_INFO = {};
   let randomNam1;
   let randomNam2;
   let result;
   let operationSign;
 
-  console.log('What is the result of the expression?');
   for (let i = 0; i < 3; i += 1) {
     randomNam1 = getRandomInt();
     randomNam2 = getRandomInt();
     operationSign = getRandomIntSign();
-    console.log(`Question: ${randomNam1} ${operationSign} ${randomNam2}`);
+
+    GAME_INFO.questionOfRound = `${randomNam1} ${operationSign} ${randomNam2}`;
+
     if (operationSign === '+') {
       result = randomNam1 + randomNam2;
     }
@@ -23,16 +23,14 @@ const brainCalc = () => {
     if (operationSign === '*') {
       result = randomNam1 * randomNam2;
     }
-    // console.log('Подсказка для тестов' + result); // удобно включить для проверки
-    const userAnswer = readlineSync.question('Your answer: ');
-    if (Number(userAnswer) === result) {
-      console.log('Correct!');
-    } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${result}.
-        Let's try again, ${localUserName}!`);
-      return;
-    }
+    GAME_INFO.correctAnswer = result;
   }
-  console.log(`Congratulations, ${localUserName}!`);
+  return GAME_INFO;
+};
+
+const brainCalc = () => {
+  const gameDescription = 'What is the result of the expression?';
+
+  getGameLaunchTemplate(getOneRoundPlay, gameDescription);
 };
 export default brainCalc;
