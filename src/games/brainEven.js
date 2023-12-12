@@ -14,7 +14,7 @@ const getOneRoundPlay = () => {
 
   if (isEven(QUESTION_OF_ROUND) === true) {
     GAME_INFO.correctAnswer = 'yes';
-  } else { GAME_INFO.correctAnswer = 'no';}
+  } else { GAME_INFO.correctAnswer = 'no'; }
   return GAME_INFO;
 };
 

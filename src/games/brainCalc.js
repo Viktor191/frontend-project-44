@@ -2,29 +2,24 @@ import { getRandomInt, getGameLaunchTemplate, getRandomIntSign } from '../index.
 
 const getOneRoundPlay = () => {
   const GAME_INFO = {};
-  let randomNam1;
-  let randomNam2;
+  const randomNam1 = getRandomInt();
+  const randomNam2 = getRandomInt();
   let result;
-  let operationSign;
+  const operationSign = getRandomIntSign();
 
-  for (let i = 0; i < 3; i += 1) {
-    randomNam1 = getRandomInt();
-    randomNam2 = getRandomInt();
-    operationSign = getRandomIntSign();
+  GAME_INFO.questionOfRound = `${randomNam1} ${operationSign} ${randomNam2}`;
 
-    GAME_INFO.questionOfRound = `${randomNam1} ${operationSign} ${randomNam2}`;
-
-    if (operationSign === '+') {
-      result = randomNam1 + randomNam2;
-    }
-    if (operationSign === '-') {
-      result = randomNam1 - randomNam2;
-    }
-    if (operationSign === '*') {
-      result = randomNam1 * randomNam2;
-    }
-    GAME_INFO.correctAnswer = result;
+  if (operationSign === '+') {
+    result = randomNam1 + randomNam2;
   }
+  if (operationSign === '-') {
+    result = randomNam1 - randomNam2;
+  }
+  if (operationSign === '*') {
+    result = randomNam1 * randomNam2;
+  }
+  GAME_INFO.correctAnswer = result;
+
   return GAME_INFO;
 };
 
