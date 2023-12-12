@@ -10,9 +10,6 @@ publish:
 brain-even:
     node bin/brain-even.js
 
-brain-even2:
-    node bin/brain-even2.js
-
 brain-calc:
     node bin/brain-calc.js
 
