@@ -2,21 +2,21 @@ import runGameTemplate from '../index.js';
 import getRandomInt from '../util.js';
 
 export const getRandomArr = () => {
-  const MIN = 5;
-  const MAX = 11;
-  const ARR = [];
+  const min = 5;
+  const max = 11;
+  const arr = [];
   let result = getRandomInt();
-  const PROGRESSION_STEP = getRandomInt();
+  const progressionStep = getRandomInt();
 
-  const MAX_LENGTH_ARR = Math.floor(Math.random() * (MAX - MIN)) + MIN;
-  ARR.push(result);
+  const maxLengthArr = Math.floor(Math.random() * (max - min)) + min;
+  arr.push(result);
 
-  for (let i = 0; i < MAX_LENGTH_ARR - 1; i += 1) {
-    result += PROGRESSION_STEP;
-    ARR.push(result);
+  for (let i = 0; i < maxLengthArr - 1; i += 1) {
+    result += progressionStep;
+    arr.push(result);
   }
 
-  return ARR;
+  return arr;
 };
 
 const hideElement = () => {

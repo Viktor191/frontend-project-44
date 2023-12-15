@@ -1,7 +1,7 @@
 const getRandomInt = () => {
-  const MIN = 1;
-  const MAX = 101;
+  const min = 1;
+  const max = 101;
 
-  return Math.floor(Math.random() * (MAX - MIN)) + MIN;
+  return Math.floor(Math.random() * (max - min)) + min;
 };
 export default getRandomInt();

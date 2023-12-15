@@ -2,12 +2,12 @@ import runGameTemplate from '../index.js';
 import getRandomInt from '../util.js';
 
 export const getRandomIntSign = () => {
-  const MIN = 0;
-  const MAX = 3;
-  const ARR_SIGN = ['+', '*', '-'];
-  const NUMBER_SIGN = Math.floor(Math.random() * (MAX - MIN)) + MIN;
+  const min = 0;
+  const max = 3;
+  const arrSign = ['+', '*', '-'];
+  const numberSign = Math.floor(Math.random() * (max - min)) + min;
 
-  return ARR_SIGN[NUMBER_SIGN];
+  return arrSign[numberSign];
 };
 
 const getOneRoundPlay = () => {
