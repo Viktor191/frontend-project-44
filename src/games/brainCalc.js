@@ -1,31 +1,46 @@
-import { getRandomInt, getGameLaunchTemplate, getRandomIntSign } from '../index.js';
+import runGameTemplate from '../index.js';
+import getRandomInt from '../util.js';
+
+export const getRandomIntSign = () => {
+  const MIN = 0;
+  const MAX = 3;
+  const ARR_SIGN = ['+', '*', '-'];
+  const NUMBER_SIGN = Math.floor(Math.random() * (MAX - MIN)) + MIN;
+
+  return ARR_SIGN[NUMBER_SIGN];
+};
 
 const getOneRoundPlay = () => {
-  const GAME_INFO = {};
+  const roundInfo = {};
   const randomNam1 = getRandomInt();
   const randomNam2 = getRandomInt();
   let result;
   const operationSign = getRandomIntSign();
 
-  GAME_INFO.questionOfRound = `${randomNam1} ${operationSign} ${randomNam2}`;
+  roundInfo.roundQuestion = `${randomNam1} ${operationSign} ${randomNam2}`;
 
-  if (operationSign === '+') {
-    result = randomNam1 + randomNam2;
+  switch (operationSign) {
+    case '+':
+      result = randomNam1 + randomNam2;
+      break;
+    case '-':
+      result = randomNam1 - randomNam2;
+      break;
+    case '*':
+      result = randomNam1 * randomNam2;
+      break;
+    default:
+      console.log('error');
   }
-  if (operationSign === '-') {
-    result = randomNam1 - randomNam2;
-  }
-  if (operationSign === '*') {
-    result = randomNam1 * randomNam2;
-  }
-  GAME_INFO.correctAnswer = result;
+  console.log(result); // для тестов
+  roundInfo.correctAnswer = result.toString();
 
-  return GAME_INFO;
+  return roundInfo;
 };
 
 const brainCalc = () => {
   const gameDescription = 'What is the result of the expression?';
 
-  getGameLaunchTemplate(getOneRoundPlay, gameDescription);
+  runGameTemplate(getOneRoundPlay, gameDescription);
 };
 export default brainCalc;

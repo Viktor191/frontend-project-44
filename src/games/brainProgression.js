@@ -1,32 +1,55 @@
-import { getGameLaunchTemplate, getRandomArr } from '../index.js';
+import runGameTemplate from '../index.js';
+import getRandomInt from '../util.js';
 
-let correctAnswer;
+export const getRandomArr = () => {
+  const MIN = 5;
+  const MAX = 11;
+  const ARR = [];
+  let result = getRandomInt();
+  const PROGRESSION_STEP = getRandomInt();
+
+  const MAX_LENGTH_ARR = Math.floor(Math.random() * (MAX - MIN)) + MIN;
+  ARR.push(result);
+
+  for (let i = 0; i < MAX_LENGTH_ARR - 1; i += 1) {
+    result += PROGRESSION_STEP;
+    ARR.push(result);
+  }
+
+  return ARR;
+};
+
 const hideElement = () => {
+  const hideElementInfo = {};
   const randomArr = getRandomArr();
   const min = 0;
   const max = randomArr.length;
   const elementIndex = Math.floor(Math.random() * (max - min)) + min;
   const result = randomArr[elementIndex];
-  // console.log(`${result} result`);
+
   randomArr.splice(elementIndex, 1, '..');
-  correctAnswer = result;
-  return randomArr.join(' ');
+
+  hideElementInfo.correctAnswer = result.toString();
+  hideElementInfo.randomNam = randomArr.join(' ');
+
+  return hideElementInfo;
 };
 
 const getOneRoundPlay = () => {
-  const GAME_INFO = {};
-  const randomNam1 = hideElement();
+  const roundInfo = {};
+  const randomArrayAndCorrectAnswer = hideElement();
 
-  GAME_INFO.correctAnswer = correctAnswer;
-  GAME_INFO.questionOfRound = `${randomNam1}`;
+  roundInfo.correctAnswer = randomArrayAndCorrectAnswer.correctAnswer;
+  roundInfo.roundQuestion = `${randomArrayAndCorrectAnswer.randomNam}`;
 
-  console.log(`Подсказка для тестов ${GAME_INFO.correctAnswer}`);
+  console.log(`Подсказка для тестов ${roundInfo.correctAnswer}`);
 
-  return GAME_INFO;
+  return roundInfo;
 };
+
 const brainProgression = () => {
   const gameDescription = 'What number is missing in the progression?';
 
-  getGameLaunchTemplate(getOneRoundPlay, gameDescription);
+  runGameTemplate(getOneRoundPlay, gameDescription);
 };
 export default brainProgression;

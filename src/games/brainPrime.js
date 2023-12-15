@@ -1,24 +1,33 @@
-import { isPrime, getRandomInt, getGameLaunchTemplate } from '../index.js';
+import runGameTemplate from '../index.js';
+import getRandomInt from '../util.js';
+
+export function isPrime(num) {
+  for (let i = 2; i < num; i += 1) {
+    if (num % i === 0) return false;
+  }
+
+  return num !== 1;
+}
 
 const getOneRoundPlay = () => {
-  const GAME_INFO = {};
-  const randomNam1 = getRandomInt();
-  const isResult = isPrime(randomNam1);
-  // randomNam1 = getRandomInt();
+  const roundInfo = {};
+  const randomNam = getRandomInt();
+  const isPrimeNumber = isPrime(randomNam);
 
-  if (isResult === true) {
-    GAME_INFO.correctAnswer = 'yes';
-  } else { GAME_INFO.correctAnswer = 'no'; }
+  if (isPrimeNumber) {
+    roundInfo.correctAnswer = 'yes';
+  } else { roundInfo.correctAnswer = 'no'; }
 
-  GAME_INFO.questionOfRound = `${randomNam1}`;
+  roundInfo.roundQuestion = `${randomNam}`;
 
-  console.log(`Подсказка для тестов ${GAME_INFO.correctAnswer}`);
+  console.log(`Подсказка для тестов ${roundInfo.correctAnswer}`);
 
-  return GAME_INFO;
+  return roundInfo;
 };
+
 const brainGcd = () => {
   const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-  getGameLaunchTemplate(getOneRoundPlay, gameDescription);
+  runGameTemplate(getOneRoundPlay, gameDescription);
 };
 export default brainGcd;
