@@ -1,7 +1,7 @@
 import runGameTemplate from '../index.js';
 import getRandomInt from '../util.js';
 
-export const getRandomIntSign = () => {
+export const getRandomSign = () => {
   const min = 0;
   const max = 3;
   const arrSign = ['+', '*', '-'];
@@ -15,7 +15,7 @@ const getOneRoundPlay = () => {
   const randomNam1 = getRandomInt();
   const randomNam2 = getRandomInt();
   let result;
-  const operationSign = getRandomIntSign();
+  const operationSign = getRandomSign();
 
   roundInfo.roundQuestion = `${randomNam1} ${operationSign} ${randomNam2}`;
 
