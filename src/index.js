@@ -10,19 +10,21 @@ const runGameTemplate = (getOneRoundPlay, gameDescription) => {
   console.log(gameDescription);
 
   for (let i = 0; i < roundsСount; i += 1) {
-    const roundInfo = getOneRoundPlay();
-    console.log(`Question: ${roundInfo.roundQuestion}`);
+    const { roundQuestion, correctAnswer } = getOneRoundPlay();
+
+    console.log(`Question: ${roundQuestion}`);
 
     const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer === roundInfo.correctAnswer) {
+    if (userAnswer === correctAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${roundInfo.correctAnswer}".
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".
         Let's try again, ${name}!`);
 
       return;
     }
   }
+
   console.log(`Congratulations, ${name}!`);
 };
 export default runGameTemplate;

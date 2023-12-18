@@ -8,7 +8,7 @@ export const getGreatestCommonDivisor = (a, b) => {
     if (first > second) {
       first %= second;
     } else {
-      second %= first; // наоборот
+      second %= first;
     }
   }
 
