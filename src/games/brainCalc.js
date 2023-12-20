@@ -1,4 +1,4 @@
-import runGameTemplate from '../index.js';
+import runGame from '../index.js';
 import getRandomInt from '../util.js';
 
 export const getRandomSign = () => {
@@ -10,7 +10,7 @@ export const getRandomSign = () => {
   return arrSign[numberSign];
 };
 
-const getOneRoundPlay = () => {
+const getOneRoundInfo = () => {
   const roundInfo = {};
   const randomNam1 = getRandomInt();
   const randomNam2 = getRandomInt();
@@ -41,6 +41,6 @@ const getOneRoundPlay = () => {
 const brainCalc = () => {
   const gameDescription = 'What is the result of the expression?';
 
-  runGameTemplate(getOneRoundPlay, gameDescription);
+  runGame(getOneRoundInfo, gameDescription);
 };
 export default brainCalc;

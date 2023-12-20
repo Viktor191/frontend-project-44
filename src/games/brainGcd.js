@@ -1,9 +1,10 @@
-import runGameTemplate from '../index.js';
+import runGame from '../index.js';
 import getRandomInt from '../util.js';
 
 export const getGreatestCommonDivisor = (a, b) => {
   let first = a;
   let second = b;
+
   while (first !== 0 && second !== 0) {
     if (first > second) {
       first %= second;
@@ -14,7 +15,7 @@ export const getGreatestCommonDivisor = (a, b) => {
 
   return first + second;
 };
-const getOneRoundPlay = () => {
+const getOneRoundInfo = () => {
   const roundInfo = {};
   const randomNam1 = getRandomInt();
   const randomNam2 = getRandomInt();
@@ -30,6 +31,6 @@ const getOneRoundPlay = () => {
 const brainGcd = () => {
   const gameDescription = 'Find the greatest common divisor of given numbers.';
 
-  runGameTemplate(getOneRoundPlay, gameDescription);
+  runGame(getOneRoundInfo, gameDescription);
 };
 export default brainGcd;

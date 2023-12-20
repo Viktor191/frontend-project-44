@@ -1,20 +1,17 @@
-import runGameTemplate from '../index.js';
+import runGame from '../index.js';
 import getRandomInt from '../util.js';
 
-const isEven = (x) => {
-  if (Number(x) === true) { return x % 2 === 0; } return undefined;
-};
+const isEven = (x) => x % 2 === 0;
 
-const getOneRoundPlay = () => {
+const getOneRoundInfo = () => {
   const roundInfo = {};
 
-  const questionOfRound = getRandomInt();
-  roundInfo.roundQuestion = questionOfRound;
+  roundInfo.roundQuestion = getRandomInt();
 
-  if (isEven(questionOfRound)) {
+  if (isEven(roundInfo.roundQuestion)) {
     roundInfo.correctAnswer = 'yes';
   } else { roundInfo.correctAnswer = 'no'; }
-  console.log(roundInfo.correctAnswer);// для тестов
+  console.log(roundInfo.correctAnswer);
 
   return roundInfo;
 };
@@ -22,6 +19,6 @@ const getOneRoundPlay = () => {
 const brainEven = () => {
   const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-  runGameTemplate(getOneRoundPlay, gameDescription);
+  runGame(getOneRoundInfo, gameDescription);
 };
 export default brainEven;
