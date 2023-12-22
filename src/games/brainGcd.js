@@ -33,4 +33,5 @@ const brainGcd = () => {
 
   runGame(getOneRoundInfo, gameDescription);
 };
+
 export default brainGcd;

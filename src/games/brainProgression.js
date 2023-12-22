@@ -1,46 +1,36 @@
 import runGame from '../index.js';
 import getRandomInt from '../util.js';
 
-export const getRandomArr = () => {
-  const min = 5;
-  const max = 11;
+const getRandomArr = () => {
   const arr = [];
   let result = getRandomInt();
   const progressionStep = getRandomInt();
 
-  const maxLengthArr = Math.floor(Math.random() * (max - min)) + min;
+  const maxLengthArr = getRandomInt(5, 11);
   arr.push(result);
 
   for (let i = 0; i < maxLengthArr - 1; i += 1) {
     result += progressionStep;
     arr.push(result);
   }
-  console.log(arr);
+
   return arr;
 };
 
-const getCorrectAnswerGetRandomNumber = () => {
-  const CorrectAnswerRandomNumber = {};
-  const randomArr = getRandomArr();
-  const min = 0;
-  const max = randomArr.length;
-  const elementIndex = Math.floor(Math.random() * (max - min)) + min;
-  const result = randomArr[elementIndex];
+const hideArrElement = (arr, elementIndex) => {
+  arr.splice(elementIndex, 1, '..');
 
-  randomArr.splice(elementIndex, 1, '..');
-
-  CorrectAnswerRandomNumber.correctAnswer = result.toString();
-  CorrectAnswerRandomNumber.randomNam = randomArr.join(' ');
-
-  return CorrectAnswerRandomNumber;
+  return arr.join(' ');
 };
 
 const getOneRoundInfo = () => {
   const roundInfo = {};
-  const randomArrayAndCorrectAnswer = getCorrectAnswerGetRandomNumber();
+  const randomArr = getRandomArr();
+  const elementIndex = getRandomInt(0, randomArr.length - 1);
+  const result = randomArr[elementIndex];
 
-  roundInfo.correctAnswer = randomArrayAndCorrectAnswer.correctAnswer;
-  roundInfo.roundQuestion = `${randomArrayAndCorrectAnswer.randomNam}`;
+  roundInfo.correctAnswer = result.toString();
+  roundInfo.roundQuestion = hideArrElement(randomArr, elementIndex);
 
   console.log(`Подсказка для тестов ${roundInfo.correctAnswer}`);
 

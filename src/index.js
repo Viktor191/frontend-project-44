@@ -19,7 +19,7 @@ const runGame = (getOneRoundInfo, gameDescription) => {
     if (userAnswer !== correctAnswer) {
       console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".
       Let's try again, ${name}!`);
-      // break; // Если использую break то при пройгрыше после Let's try again показывается Congratulations
+
       return;
     }
     console.log('Correct!');
@@ -27,4 +27,5 @@ const runGame = (getOneRoundInfo, gameDescription) => {
 
   console.log(`Congratulations, ${name}!`);
 };
+
 export default runGame;

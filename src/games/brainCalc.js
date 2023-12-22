@@ -43,4 +43,5 @@ const brainCalc = () => {
 
   runGame(getOneRoundInfo, gameDescription);
 };
+
 export default brainCalc;
