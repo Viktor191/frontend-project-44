@@ -8,9 +8,8 @@ const getOneRoundInfo = () => {
 
   roundInfo.roundQuestion = getRandomInt();
 
-  if (isEven(roundInfo.roundQuestion)) {
-    roundInfo.correctAnswer = 'yes';
-  } else { roundInfo.correctAnswer = 'no'; }
+  roundInfo.correctAnswer = isEven(roundInfo.roundQuestion) ? 'yes' : 'no';
+
   console.log(roundInfo.correctAnswer);
 
   return roundInfo;

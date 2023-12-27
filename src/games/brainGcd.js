@@ -6,15 +6,19 @@ export const getGreatestCommonDivisor = (a, b) => {
   let second = b;
 
   while (first !== 0 && second !== 0) {
+    first > second ? first %= second : second %= first; // игра работает, но линтер подчеркивает first
+    /*
     if (first > second) {
       first %= second;
     } else {
       second %= first;
     }
+    */
   }
 
   return first + second;
 };
+
 const getOneRoundInfo = () => {
   const roundInfo = {};
   const randomNam1 = getRandomInt();

@@ -15,14 +15,16 @@ const runGame = (getOneRoundInfo, gameDescription) => {
     console.log(`Question: ${roundQuestion}`);
 
     const userAnswer = readlineSync.question('Your answer: ');
-
+    userAnswer === correctAnswer ? console.log('Correct!') : console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".
+      Let's try again, ${name}!`);// снова ошибка линтера, userAnswer
+    /*
     if (userAnswer !== correctAnswer) {
       console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".
       Let's try again, ${name}!`);
 
       return;
     }
-    console.log('Correct!');
+    console.log('Correct!');*/
   }
 
   console.log(`Congratulations, ${name}!`);

@@ -5,7 +5,7 @@ export const getRandomSign = () => {
   const min = 0;
   const max = 3;
   const arrSign = ['+', '*', '-'];
-  const numberSign = Math.floor(Math.random() * (max - min)) + min;
+  const numberSign = getRandomInt(min, max);
 
   return arrSign[numberSign];
 };

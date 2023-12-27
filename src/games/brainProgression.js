@@ -1,7 +1,7 @@
 import runGame from '../index.js';
 import getRandomInt from '../util.js';
 
-const getRandomArr = () => {
+const generateNumbersArray = () => {
   const arr = [];
   let result = getRandomInt();
   const progressionStep = getRandomInt();
@@ -25,12 +25,12 @@ const hideArrElement = (arr, elementIndex) => {
 
 const getOneRoundInfo = () => {
   const roundInfo = {};
-  const randomArr = getRandomArr();
-  const elementIndex = getRandomInt(0, randomArr.length - 1);
-  const result = randomArr[elementIndex];
+  const numbers = generateNumbersArray();
+  const indexToHide = getRandomInt(0, numbers.length - 1);
+  const result = numbers[indexToHide];
 
   roundInfo.correctAnswer = result.toString();
-  roundInfo.roundQuestion = hideArrElement(randomArr, elementIndex);
+  roundInfo.roundQuestion = hideArrElement(numbers, indexToHide);
 
   console.log(`Подсказка для тестов ${roundInfo.correctAnswer}`);
 

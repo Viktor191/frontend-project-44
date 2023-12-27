@@ -12,9 +12,9 @@ export function isPrime(num) {
 const getOneRoundInfo = () => {
   const roundInfo = {};
   const randomNam = getRandomInt();
-  const result = isPrime(randomNam);
+  const isPrimeNumber = isPrime(randomNam);
 
-  roundInfo.correctAnswer = result ? 'yes' : 'no';
+  roundInfo.correctAnswer = isPrimeNumber ? 'yes' : 'no';
   roundInfo.roundQuestion = `${randomNam}`;
 
   console.log(`Подсказка для тестов ${roundInfo.correctAnswer}`);
