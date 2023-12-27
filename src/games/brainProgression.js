@@ -1,6 +1,8 @@
 import runGame from '../index.js';
 import getRandomInt from '../util.js';
 
+const GAME_DESCRIPTION = 'What number is missing in the progression?';
+
 const generateNumbersArray = () => {
   const arr = [];
   let result = getRandomInt();
@@ -38,9 +40,7 @@ const getOneRoundInfo = () => {
 };
 
 const brainProgression = () => {
-  const gameDescription = 'What number is missing in the progression?';
-
-  runGame(getOneRoundInfo, gameDescription);
+  runGame(getOneRoundInfo, GAME_DESCRIPTION);
 };
 
 export default brainProgression;

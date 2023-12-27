@@ -1,6 +1,8 @@
 import runGame from '../index.js';
 import getRandomInt from '../util.js';
 
+const GAME_DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
+
 const isEven = (x) => x % 2 === 0;
 
 const getOneRoundInfo = () => {
@@ -16,9 +18,7 @@ const getOneRoundInfo = () => {
 };
 
 const brainEven = () => {
-  const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
-
-  runGame(getOneRoundInfo, gameDescription);
+  runGame(getOneRoundInfo, GAME_DESCRIPTION);
 };
 
 export default brainEven;

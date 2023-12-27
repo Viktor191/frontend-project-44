@@ -1,6 +1,8 @@
 import runGame from '../index.js';
 import getRandomInt from '../util.js';
 
+const GAME_DESCRIPTION = 'What is the result of the expression?';
+
 export const getRandomSign = () => {
   const min = 0;
   const max = 3;
@@ -39,9 +41,7 @@ const getOneRoundInfo = () => {
 };
 
 const brainCalc = () => {
-  const gameDescription = 'What is the result of the expression?';
-
-  runGame(getOneRoundInfo, gameDescription);
+  runGame(getOneRoundInfo, GAME_DESCRIPTION);
 };
 
 export default brainCalc;
