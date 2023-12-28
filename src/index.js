@@ -18,7 +18,7 @@ const runGame = (getOneRoundInfo, GAME_DESCRIPTION) => {
 /*
     const userAnswer = readlineSync.question('Your answer: ');
     userAnswer === correctAnswer ? console.log('Correct!') : console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".
-      Let's try again, ${name}!`);// снова ошибка линтера, userAnswer
+      Let's try again, ${name}!`);// снова ошибка линтера, userAnswer// и не пполучается выйти из цикла при непраильном ответе
     */
 
     if (userAnswer !== correctAnswer) {
