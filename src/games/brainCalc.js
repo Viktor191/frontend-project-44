@@ -34,7 +34,6 @@ const getOneRoundInfo = () => {
     default:
       console.log('error');
   }
-  console.log(result); // для тестов
   roundInfo.correctAnswer = result.toString();
 
   return roundInfo;

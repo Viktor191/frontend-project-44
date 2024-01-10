@@ -12,8 +12,6 @@ const getOneRoundInfo = () => {
 
   roundInfo.correctAnswer = isEven(roundInfo.roundQuestion) ? 'yes' : 'no';
 
-  console.log(roundInfo.correctAnswer);
-
   return roundInfo;
 };
 

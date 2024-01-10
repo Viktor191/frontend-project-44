@@ -19,8 +19,6 @@ const getOneRoundInfo = () => {
   roundInfo.correctAnswer = isPrimeNumber ? 'yes' : 'no';
   roundInfo.roundQuestion = `${randomNam}`;
 
-  console.log(`Подсказка для тестов ${roundInfo.correctAnswer}`);
-
   return roundInfo;
 };
 

@@ -26,8 +26,6 @@ const getOneRoundInfo = () => {
   roundInfo.correctAnswer = getGreatestCommonDivisor(randomNam1, randomNam2).toString();
   roundInfo.roundQuestion = `${randomNam1} ${randomNam2}`;
 
-  console.log(`Подсказка для тестов ${roundInfo.correctAnswer}`);
-
   return roundInfo;
 };
 

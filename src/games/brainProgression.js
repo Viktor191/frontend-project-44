@@ -34,8 +34,6 @@ const getOneRoundInfo = () => {
   roundInfo.correctAnswer = result.toString();
   roundInfo.roundQuestion = hideArrElement(numbers, indexToHide);
 
-  console.log(`Подсказка для тестов ${roundInfo.correctAnswer}`);
-
   return roundInfo;
 };
 
