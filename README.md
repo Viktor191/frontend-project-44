@@ -19,7 +19,7 @@ make brain-even
 Суть игры в следующем: пользователю показывается случайное число.
 И ему нужно ответить yes, если число чётное, или no — если нечётное.
 <br>
-[![asciicast](https://asciinema.org/a/L1p4xDFzAyNqAk6jB0dJsNCGM.svg)](https://asciinema.org/a/L1p4xDFzAyNqAk6jB0dJsNCGM)
+[![asciicast](https://asciinema.org/a/wUdp1axWQXEVFThLpc97oLBrn.svg)](https://asciinema.org/a/wUdp1axWQXEVFThLpc97oLBrn)
 <br>  
 <br>
 
@@ -31,7 +31,7 @@ make brain-calc
 выражение, например 35 + 16, которое нужно вычислить и записать правильный
 ответ.
 <br>
-[![asciicast](https://asciinema.org/a/3hT6UwOlgNAIuGHUGlJFr5MUj.svg)](https://asciinema.org/a/3hT6UwOlgNAIuGHUGlJFr5MUj)
+[![asciicast](https://asciinema.org/a/BjJeIeGBwnK3Z0pXxvuVuCvFt.svg)](https://asciinema.org/a/BjJeIeGBwnK3Z0pXxvuVuCvFt)
 <br>  
 <br>
 
@@ -42,7 +42,7 @@ make brain-gcd
 Суть игры в следующем: пользователю показывается два случайных числа, например, 25 50. Пользователь должен 
 вычислить и ввести наибольший общий делитель этих чисел.
 <br>
-[![asciicast](https://asciinema.org/a/seQCy4oKLapSegemTVdVxkSso.svg)](https://asciinema.org/a/seQCy4oKLapSegemTVdVxkSso)
+[![asciicast](https://asciinema.org/a/6D4xCMJvdSQqsGhm8RrA6Or2a.svg)](https://asciinema.org/a/6D4xCMJvdSQqsGhm8RrA6Or2a)
 <br>  
 <br>
 
@@ -55,7 +55,7 @@ make brain-progression
 Рекомендуемая длина прогрессии – 10 чисел. Длина может генерироваться случайным образом, но должна содержать не менее 5 чисел
 Позиция спрятанного элемента каждый раз изменяется (выбирается случайным образом)
 <br>
-[![asciicast](https://asciinema.org/a/dpOZtiTW0rTmMYuYbwvdhMWys.svg)](https://asciinema.org/a/dpOZtiTW0rTmMYuYbwvdhMWys)
+[![asciicast](https://asciinema.org/a/8RrmCfmqnxTzN9tjQTvaFIoYn.svg)](https://asciinema.org/a/8RrmCfmqnxTzN9tjQTvaFIoYn)
 <br>  
 <br>
 
@@ -66,4 +66,4 @@ make brain-prime
 Пользователю показывается случайное число. И ему нужно ответить yes, 
 если число простое, или no — если не простое.
 <br>
-[![asciicast](https://asciinema.org/a/2ys6oypTFEIgxV4AE5278uduB.svg)](https://asciinema.org/a/2ys6oypTFEIgxV4AE5278uduB)
+[![asciicast](https://asciinema.org/a/IkG6tseI43NgvqaOy0qEWkDtB.svg)](https://asciinema.org/a/IkG6tseI43NgvqaOy0qEWkDtB)
