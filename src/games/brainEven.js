@@ -6,13 +6,13 @@ const GAME_DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "
 const isEven = (x) => x % 2 === 0;
 
 const getOneRoundInfo = () => {
-  const roundInfo = {};
+  const roundQuestion = getRandomInt();
+  const correctAnswer = isEven(roundQuestion) ? 'yes' : 'no';
 
-  roundInfo.roundQuestion = getRandomInt();
-
-  roundInfo.correctAnswer = isEven(roundInfo.roundQuestion) ? 'yes' : 'no';
-
-  return roundInfo;
+  return {
+    correctAnswer,
+    roundQuestion,
+  };
 };
 
 const brainEven = () => {

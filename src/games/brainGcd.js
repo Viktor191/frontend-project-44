@@ -19,14 +19,16 @@ export const getGreatestCommonDivisor = (a, b) => {
 };
 
 const getOneRoundInfo = () => {
-  const roundInfo = {};
   const randomNam1 = getRandomInt();
   const randomNam2 = getRandomInt();
 
-  roundInfo.correctAnswer = getGreatestCommonDivisor(randomNam1, randomNam2).toString();
-  roundInfo.roundQuestion = `${randomNam1} ${randomNam2}`;
+  const correctAnswer = getGreatestCommonDivisor(randomNam1, randomNam2).toString();
+  const roundQuestion = `${randomNam1} ${randomNam2}`;
 
-  return roundInfo;
+  return {
+    correctAnswer,
+    roundQuestion,
+  };
 };
 
 const brainGcd = () => {

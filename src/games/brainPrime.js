@@ -12,14 +12,16 @@ export function isPrime(num) {
 }
 
 const getOneRoundInfo = () => {
-  const roundInfo = {};
   const randomNam = getRandomInt();
   const isPrimeNumber = isPrime(randomNam);
 
-  roundInfo.correctAnswer = isPrimeNumber ? 'yes' : 'no';
-  roundInfo.roundQuestion = `${randomNam}`;
+  const correctAnswer = isPrimeNumber ? 'yes' : 'no';
+  const roundQuestion = `${randomNam}`;
 
-  return roundInfo;
+  return {
+    correctAnswer,
+    roundQuestion,
+  };
 };
 
 const brainGcd = () => {

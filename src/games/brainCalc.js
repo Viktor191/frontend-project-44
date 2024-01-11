@@ -13,13 +13,12 @@ export const getRandomSign = () => {
 };
 
 const getOneRoundInfo = () => {
-  const roundInfo = {};
   const randomNam1 = getRandomInt();
   const randomNam2 = getRandomInt();
   let result;
   const operationSign = getRandomSign();
 
-  roundInfo.roundQuestion = `${randomNam1} ${operationSign} ${randomNam2}`;
+  const roundQuestion = `${randomNam1} ${operationSign} ${randomNam2}`;
 
   switch (operationSign) {
     case '+':
@@ -34,9 +33,12 @@ const getOneRoundInfo = () => {
     default:
       console.log('error');
   }
-  roundInfo.correctAnswer = result.toString();
+  const correctAnswer = result.toString();
 
-  return roundInfo;
+  return {
+    correctAnswer,
+    roundQuestion,
+  };
 };
 
 const brainCalc = () => {
