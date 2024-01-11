@@ -26,15 +26,17 @@ const hideArrElement = (arr, elementIndex) => {
 };
 
 const getOneRoundInfo = () => {
-  const roundInfo = {};
   const numbers = generateNumbersArray();
   const indexToHide = getRandomInt(0, numbers.length - 1);
   const result = numbers[indexToHide];
 
-  roundInfo.correctAnswer = result.toString();
-  roundInfo.roundQuestion = hideArrElement(numbers, indexToHide);
+  const correctAnswer = result.toString();
+  const roundQuestion = hideArrElement(numbers, indexToHide);
 
-  return roundInfo;
+  return {
+    correctAnswer,
+    roundQuestion,
+  };
 };
 
 const brainProgression = () => {
